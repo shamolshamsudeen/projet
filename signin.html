@@ -1,84 +1,18 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Welcome To Registration Form</title>
 </head>
 <H1>SIGN UP</H1>
-  <body>
-  <!-- Main div code -->
-  <div id="main">
-  <div class="h-tag">
-  <h2>Create Your Account</h2>
-  </div>
-  <!-- create account div -->
-  <div class="login">
-  <table cellspacing="2" align="center" cellpadding="8" border="0">
-  <tr>
-  <td align="right">Enter Name :</td>
-  <td><input type="text" placeholder="Enter user here" id="t1" class="tb" /></td>
-  </tr>
-  <tr>
-  <td align="right">Enter Email ID :</td>
-  <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
-  </tr>
-  <tr>
-  <td align="right">Enter phoneno :</td>
-  <td><input type="text" placeholder="Enter Username here" id="t3" class="tb" /></td>
-  </tr>
-  <tr>
-  <td align="right">Enter Password :</td>
-  <td><input type="password" placeholder="Enter Password here" id="t4" class="tb" /></td>
-  </tr>
-  <tr>
-  <td align="right">Enter Confirm Password :</td>
-  <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" /></td>
-  </tr>
-  <tr>
-  <td></td>
-  <td>
-  <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
-  <input type="submit" value="Create Account" class="btn" onclick="registration()" /></td>
-  </tr>
-  </table>
-  </div>
-  <!-- create account box ending here.. -->
-  </div>
-  <!-- Main div ending here... -->
-  
-
-  <head>
-  <style type="text/css">
-  
-    body
-    {
-	    margin:0px;
-	    background-color:#f26724;
-	    background-image:url(image/background.jpg);
-	    color:#f9fcf5;
-	    font-family:Arial, Helvetica, sans-serif;
-    }
-    
-    #main{width:600px; height:auto; overflow:hidden; padding-bottom:20px; margin-left:auto; margin-right:auto; 
-    border-radius:5px; padding-left:10px; margin-top:100px; border-top:3px double #f1f1f1; 
-    border-bottom:3px double #f1f1f1; padding-top:20px;
-    }
-    
-    #main table{font-family:"Comic Sans MS", cursive;}
-    /* css code for textbox */
-    #main .tb{height:28px; width:230px; border:1px solid #f26724; color:#fd7838; font-weight:bold; border-left:5px solid #f7f7f7; opacity:0.9;}
-    
-    #main .tb:focus{height:28px; border:1px solid #f26724; outline:none; border-left:5px solid #f7f7f7;}
-
-    /* css code for button*/
-    #main .btn{width:150px; height:32px; outline:none;  color:#f7f7f7; font-weight:bold; border:0px solid #f26724; 
-    text-shadow: 0px 0.5px 0.5px #fff; border-radius: 2px; font-weight: 600; color: #f26724; letter-spacing: 1px; 
-    font-size:14px; background-color:#f1f1f1; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s;}
-  
-    #main .btn:hover{background-color:#f26724; outline:none;  border-radius: 2px; color:#f1f1f1; border:1px solid #f1f1f1;
-    -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
-  </style>
-  </head>
-  <script>
+<script >
+  function clearFunc()
+	{
+		document.getElementById("t1").value="";
+		document.getElementById("t2").value="";
+		document.getElementById("t3").value="";
+		document.getElementById("t4").value="";
+		document.getElementById("t5").value="";
+	}
   function registration()
 	{
 
@@ -87,26 +21,8 @@
 		var phoneno= document.getElementById("t3").value;
 		var pwd= document.getElementById("t4").value;			
 		var cpwd= document.getElementById("t5").value;
-        //strong
-        var strength = document.getElementById('strength');
-        var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-        var mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-        var enoughRegex = new RegExp("(?=.{8,}).*", "g");
-       // var pwd = document.getElementById("password");//
-        if (pwd.value.length == 0) {
-            strength.innerHTML = 'Type Password';
-        } else if (false == enoughRegex.test(pwd.value)) {
-            strength.innerHTML = 'More Characters';
-        } else if (strongRegex.test(pwd.value)) {
-            strength.innerHTML = '<span style="color:green">Strong!</span>';
-        } else if (mediumRegex.test(pwd.value)) {
-            strength.innerHTML = '<span style="color:orange">Medium!</span>';
-        } else {
-            strength.innerHTML = '<span style="color:red">Weak!</span>';
-        }
-    }
-		/////////////
-        //email id expression code
+        
+        //email id expression code///
 		var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
 		var letters = /^[A-Za-z]+$/;
         var no=/[0-9]+/
@@ -136,6 +52,11 @@
 		{
 			alert('phoneno field required only numbers');
 		}
+		else if(document.getElementById("t3").value.length >=10)
+		{
+			alert ('Phone no minimum 10 nos');
+		}
+
 		else if(pwd=='')
 		{
 			alert('Please enter Password');
@@ -153,24 +74,62 @@
 			alert ('Password not Matched');
 		}
 		
-		else if(document.getElementById("t5").value.length > 10)
+		else if(document.getElementById("t5").value.length <8)
 		{
-			alert ('Password max length is 10');
+			alert ('Password minimum length is 8');
 		}
 		else
 		{				                            
-               alert('fill the forms');
+               alert('sucess');
 			  
 		}
-	}
-	function clearFunc()
-	{
-		document.getElementById("t1").value="";
-		document.getElementById("t2").value="";
-		document.getElementById("t3").value="";
-		document.getElementById("t4").value="";
-		document.getElementById("t5").value="";
-	}
+  }
 </script>
+
+<link ref="stylesheet" href="style.css">
+<span class="psw"> <a href="index.html">back to home</a></span>
+  <body>
+  <!-- Main div code -->
+  <div id="main">
+  <div class="h-tag">
+  <h2>Create Your Account</h2>
+  </div>
+  <!-- create account div -->
+  <div class="login">
+  <table cellspacing="2" align="center" cellpadding="8" border="0">
+  <tr>
+  <td align="right">Enter Name :</td>
+  <td><input type="text" placeholder="Enter user here" id="t1" class="tb" /></td>
+  </tr>
+  <tr>
+  <td align="right">Enter Email ID :</td>
+  <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+  </tr>
+  <tr>
+  <td align="right">Enter phoneno :</td>
+  <td><input type="text" placeholder="Enter phoneno here" id="t3" class="tb" /></td>
+  </tr>
+  <tr>
+  <td align ="right">Enter Password :</td>
+  <td><input type="password" placeholder="Enter Password here" id="t4" class="tb" /></td>
+  </tr>
+  <tr>
+  <td align ="right">Enter Confirm Password :</td>
+  <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" /></td>
+  </tr>
+  <tr>
+  <td></td>
+  <td>
+  <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+  <input type="submit" value="Create Account" class="btn" onclick="registration()"/></td>
+  </tr>
+  </table>
+  </div>
+  <!-- create account box ending here.. -->
+  </div>
+  <!-- Main div ending here... -->
+  
+
+ 
 </body>
 </html>
